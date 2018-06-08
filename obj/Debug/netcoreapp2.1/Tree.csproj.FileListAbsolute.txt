@@ -1,0 +1,11 @@
+/home/indiana/Documents/DataStructures/Tree/bin/Debug/netcoreapp2.1/Tree.deps.json
+/home/indiana/Documents/DataStructures/Tree/bin/Debug/netcoreapp2.1/Tree.runtimeconfig.json
+/home/indiana/Documents/DataStructures/Tree/bin/Debug/netcoreapp2.1/Tree.runtimeconfig.dev.json
+/home/indiana/Documents/DataStructures/Tree/bin/Debug/netcoreapp2.1/Tree.dll
+/home/indiana/Documents/DataStructures/Tree/bin/Debug/netcoreapp2.1/Tree.pdb
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.csprojAssemblyReference.cache
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.csproj.CoreCompileInputs.cache
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.AssemblyInfoInputs.cache
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.AssemblyInfo.cs
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.dll
+/home/indiana/Documents/DataStructures/Tree/obj/Debug/netcoreapp2.1/Tree.pdb
