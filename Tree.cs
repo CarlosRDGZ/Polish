@@ -24,11 +24,14 @@ namespace Tree
             string str = "";
             string inorder (Node root, ref string str_)
             {
-                if (root.Left != null)
-                    inorder(root.Left, ref str_);
-                str_ += root.Value + " ";
-                if (root.Rigth != null)
-                    inorder(root.Rigth, ref str_);
+                if (root != null)
+                {
+                    if (root.Left != null)
+                        inorder(root.Left, ref str_);
+                    str_ += root.Value + " ";
+                    if (root.Rigth != null)
+                        inorder(root.Rigth, ref str_);
+                }
                 return str_;
             }
             return inorder(this._root, ref str);
@@ -39,11 +42,14 @@ namespace Tree
             string str = "";
             string preorder (Node root, ref string str_)
             {
-                str_ += root.Value + " ";
-                if (root.Left != null)
-                    preorder(root.Left, ref str_);
-                if (root.Rigth != null)
-                    preorder(root.Rigth, ref str_);
+                if (root != null)
+                {
+                    str_ += root.Value + " ";
+                    if (root.Left != null)
+                        preorder(root.Left, ref str_);
+                    if (root.Rigth != null)
+                        preorder(root.Rigth, ref str_);
+                }
                 return str_;
             }
             return preorder(this._root, ref str);
@@ -54,29 +60,19 @@ namespace Tree
             string str = "";
             string postorder (Node root, ref string str_)
             {
-                if (root.Left != null)
-                    postorder(root.Left, ref str_);
-                if (root.Rigth != null)
-                    postorder(root.Rigth, ref str_);
-                str_ += root.Value + " ";
+                if (root != null)
+                {
+                    if (root.Left != null)
+                        postorder(root.Left, ref str_);
+                    if (root.Rigth != null)
+                        postorder(root.Rigth, ref str_);
+                    str_ += root.Value + " ";
+                }
                 return str_;
             }
             return postorder(this._root, ref str);
         }
 
-        public override string ToString()
-        {
-            string str = "";
-            string preorder (Node root, ref string str_)
-            {
-                str_ += root.ToString() + " ";
-                if (root.Left != null)
-                    preorder(root.Left, ref str_);
-                if (root.Rigth != null)
-                    preorder(root.Rigth, ref str_);
-                return str_;
-            }
-            return preorder(this._root, ref str);
-        }
+        public override string ToString() => this.Preorder();
     }
 }

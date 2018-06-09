@@ -1,6 +1,5 @@
 using System;
-using System.Linq;
-using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace List
 {
@@ -23,7 +22,18 @@ namespace List
                 this._head = this._tail = node;
         }
 
-        public T Find(Func<T, bool> filter)
+        public Node<T> Find(Func<T, bool> filter)
+        {
+            var temp = this._head;
+            while (temp != null)
+            {
+                if(filter(temp.Value))
+                    return temp;
+                temp = temp.Next;
+            }
+            return null;
+        }
+        public T FindValue(Func<T, bool> filter)
         {
             var temp = this._head;
             while (temp != null)
@@ -33,6 +43,60 @@ namespace List
                 temp = temp.Next;
             }
             return default(T);
+        }
+
+        public void DeletePrevious(Node<T> node)
+        {
+            if (node != null)
+            {
+                if (node.Previous != null)
+                {
+                    Node<T> previous = node.Previous;
+                    if (previous.Previous != null)
+                    {
+                        previous.Previous.Next = node;
+                        node.Previous = previous.Previous;
+                    }
+                    else
+                    {
+                        node.Previous = null;
+                        this._head = node;
+                    }
+                }
+            }
+        }
+
+        public void DeleteNext(Node<T> node)
+        {
+            if (node != null)
+            {
+                if (node.Next != null)
+                {
+                    Node<T> next = node.Next;
+                    if (next.Next != null)
+                    {
+                        next.Next.Previous = node;
+                        node.Next = next.Next;
+                    }
+                    else
+                    {
+                        node.Next = null;
+                        this._tail = node;
+                    }
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            string str = "";
+            Node<T> temp = _head;
+            while (temp != null)
+            {
+                str += temp.ToString() + System.Environment.NewLine;
+                temp = temp.Next;
+            }
+            return str;
         }
     }
 }

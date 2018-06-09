@@ -16,7 +16,8 @@ namespace Tree
         static void TestClassExpression()
         {
             Expression exp = new Expression("1+3*7+1-9/8*6+0");
-            exp.Operands();
+            // exp.Operands();
+            exp.CreateTree();
         }
 
         static void TestStack()
@@ -54,6 +55,7 @@ namespace Tree
                 tree.Add(new Node(num[i],"node " + num[i].ToString()));
             Console.WriteLine(tree.Postorder());
             Console.WriteLine(tree.Inorder());
+            Console.WriteLine(tree.Preorder());
         }
     }
 }
