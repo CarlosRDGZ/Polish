@@ -26,7 +26,7 @@ namespace Tree
         static void TestClassExpression()
         {
             // Expression exp = new Expression("1+3*7+1-9/8*6+0");
-            Expression exp = Expression.Init("1+3*7+1-9/8*6+0");
+            Expression exp = Expression.Init("1 + 3 * 7 + 1 - 9 / 8 * 6 + 0");
             if (exp != null)
             {
                 // exp.Operands();

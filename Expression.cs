@@ -12,6 +12,7 @@ namespace Tree
         {
             string pattern = @"^([0-9]{1}?([-|\+|*|\/]{1}[0-9]{1})*)+$";
             Regex r = new Regex(pattern);
+            exp = exp.Replace(" ","");
             if (r.IsMatch(exp))
                 return new Expression(exp);
             return null;
