@@ -8,6 +8,8 @@ namespace List
         private Node<T> _head = null;
         private Node<T> _tail = null;
 
+        public Node<T> Head => this._head;
+
         /* METHODS */
         public void Add(T t)
         {

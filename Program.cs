@@ -1,5 +1,6 @@
-﻿using System;
-using List;
+﻿using List;
+using System;
+using System.Text.RegularExpressions;
 
 namespace Tree
 {
@@ -7,17 +8,38 @@ namespace Tree
     {
         static void Main(string[] args)
         {
+            // TestRegex();
             TestClassExpression();
-            // Expresion();
-            // TestTree();
-            // TestStack();
+        }
+
+        static void TestRegex()
+        {
+            string pattern = @"^([0-9]{1}?([-|\+|*|\/]{1}[0-9]{1})*)+$";
+            Regex r = new Regex(pattern);
+            string[] test = { " aasd", "as", "1", "13", "1+1", "1+3+2", "1+2-3*4/5", "1+555", "1+*" };
+            for (int i = 0; i < test.Length; i++)
+            {
+                Console.WriteLine(test[i] + ": " + r.IsMatch(test[i]));
+            }
         }
 
         static void TestClassExpression()
         {
-            Expression exp = new Expression("1+3*7+1-9/8*6+0");
-            // exp.Operands();
-            exp.CreateTree();
+            // Expression exp = new Expression("1+3*7+1-9/8*6+0");
+            Expression exp = Expression.Init("1+3*7+1-9/8*6+0");
+            if (exp != null)
+            {
+                // exp.Operands();
+                Tree tree = new Tree();
+                tree.Add(exp.CreateTree());
+                System.Console.WriteLine(" Preorder: " + tree.PreorderStr());
+                System.Console.WriteLine("Postorder: " + tree.PostorderStr());
+                // System.Console.WriteLine(tree.Preorder().ToString());
+                // System.Console.WriteLine(tree.Preorder().Peek);
+                System.Console.WriteLine("Result: " + exp.Resolve());
+            }
+            else
+                System.Console.WriteLine("Not valid expression");
         }
 
         static void TestStack()
@@ -27,7 +49,7 @@ namespace Tree
                 stack.Push(new Node(i,"a"));
             Console.WriteLine(stack.ToString());
         }
-        static void Expresion()
+        static void Operators()
         {   
             string exp = "1+3*7+1-9/8*6+0";
             Stack<int> indexes = new Stack<int>();
@@ -53,9 +75,9 @@ namespace Tree
             Tree tree = new Tree();
             for(var i = 0; i < 11; i++)
                 tree.Add(new Node(num[i],"node " + num[i].ToString()));
-            Console.WriteLine(tree.Postorder());
-            Console.WriteLine(tree.Inorder());
-            Console.WriteLine(tree.Preorder());
+            Console.WriteLine(tree.PostorderStr());
+            Console.WriteLine(tree.InorderStr());
+            Console.WriteLine(tree.PreorderStr());
         }
     }
 }

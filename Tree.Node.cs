@@ -16,6 +16,7 @@ namespace Tree
         public override string ToString() =>
             "{ left: " + (this.Left != null ? "[Node node]" : "null") + ", " +
             " rigth: " + (this.Rigth != null ? "[Node node]" : "null") + ", " +
+            " operand: " + (this.Operand) + ", " +
             " value: " + (this.Value) + " }";
     }    
 }

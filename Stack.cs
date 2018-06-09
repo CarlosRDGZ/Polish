@@ -5,6 +5,10 @@ namespace List
         private Node<T> _head = null;
         private Node<T> _tail = null;
 
+        public Node<T> Peek => this._tail;
+
+        public bool IsEmpty => this._head == null;
+
         /* METHODS */
         public void Push(T t)
         {
@@ -26,7 +30,8 @@ namespace List
                 if (this._head != this._tail)
                 {
                     Node<T> removed =  this._tail;
-                    _tail.Previous.Next = null;
+                    this._tail.Previous.Next = null;
+                    this._tail = this._tail.Previous;
                     removed.Previous = null;
                     return removed;
                 }
@@ -39,10 +44,6 @@ namespace List
             }
             return null;
         }
-
-        public Node<T> Peek() => this._tail;
-
-        public bool IsEmpty() => this._head == null;
 
         public override string ToString()
         {
